@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary", "MyLibrary\MyLi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.ConsoleApp", "Cake.ConsoleApp\Cake.ConsoleApp.csproj", "{0958CE38-58F5-42EE-AECE-0FF332DC77FE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{99C433ED-7DF8-4AF7-9242-A57EB8D72BCB}"
+	ProjectSection(SolutionItems) = preProject
+		build.cake = build.cake
+		.config\dotnet-tools.json = .config\dotnet-tools.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

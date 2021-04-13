@@ -65,8 +65,5 @@ Task("PublishMyLibrary")
 Task("ExecuteBuild")
     .IsDependentOn("Publish")
     .IsDependentOn("PublishMyLibrary");
-    // .Does(() => {
-
-    // });
 
 RunTarget(target);
