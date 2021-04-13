@@ -1,11 +1,14 @@
-var target = Argument("target", "Publish");
+var target = Argument("target", "ExecuteBuild");
 var configuration = Argument("configuration", "Release");
 var solutionFolder = "./";
+var myLibraryFolder = "./MyLibrary";
 var outputFolder = "./artifacts";
+var myLibraryOutputFolder = "./myLibraryArtifacts";
 
 Task("Clean")
     .Does(() => {
         CleanDirectory(outputFolder);
+        CleanDirectory(myLibraryOutputFolder);
     });
 
 Task("Restore")
@@ -46,5 +49,24 @@ Task("Publish")
             OutputDirectory = outputFolder
         });
     });
+
+Task("PublishMyLibrary")
+    .IsDependentOn("Test")
+    .Does(() => 
+    {
+        DotNetCorePublish(myLibraryFolder, new DotNetCorePublishSettings
+        {
+            NoRestore = true,
+            Configuration = configuration,
+            OutputDirectory = myLibraryOutputFolder
+        });
+    });
+
+Task("ExecuteBuild")
+    .IsDependentOn("Publish")
+    .IsDependentOn("PublishMyLibrary");
+    // .Does(() => {
+
+    // });
 
 RunTarget(target);
