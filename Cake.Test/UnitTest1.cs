@@ -14,6 +14,7 @@ namespace Cake.Test
         {
             var calc = new Calculator.Program();
             var result = calc.Add(1, 2);
+            
             Assert.AreEqual(result, 3);
         }
     }
